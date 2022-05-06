@@ -1,0 +1,42 @@
+Question: Find Kth distinct character from start of given word
+Given a word containing any characters,numbers,etc. Print the Kth distinct character from the start of the word.
+If K is more than the length of the string or if k is more than number of distinct characters of the given word, print invalid.
+
+code explanation:
+A java program where I use scanner to get the String word and k value from the user.
+len = length of original string and other basic initializations done.
+if k value is more than the lenght of original string, then print invalid and terminate program.
+otherwise, run a loop from i = 0 to i = k - 1, by incrementing i by 1 at the end of every loop.
+loop:
+If at any point of the loop, k is more than length of String s(because the length of s could vary everytime), then print invalid and terminate the program.
+char ch is the ith character of the string s(the given word).
+String w is the part of string s from the ith position of string s. for example If s = "string" and i = 2, w = "ring".(as ith position is 2).
+This is the main line of the entire program: 
+Basically we are dividing the string s into to parts. In first part, we are keeping the string as it is till the ith position. 
+For example for String "Boolean", if i = 1, we separate it as B(s.substring(0,i+1)) and oolean(String w) where ch = 'o'(first o).
+Now in String w, we replace the character which ch is holding, which in this case is 'o' by null string causing to remove all the
+duplicates of the character and hence the String's length diminishes. Now w = "lean". And we concatenate the first part of String s
+with the new w string. In this case, "B" + "lean" = "Blean". whre ch still holds 'o' value.
+Now we assign the ch value to the String distinct.(This is for i = 1, when i = 0, distinct = "B")
+end of loop.
+Like this we remove the duplicate characters and assign "distinct" to only distinct characters.
+Lastly, if i value = k value (loop has completed), then String "distinct" holds the kth distinct value.
+
+Sample I/o
+Enter String
+boolean
+Enter the kth distinct character
+4
+The 4th distinct character is: e
+
+Enter String
+cross-section
+Enter the kth distinct character
+6
+The 6th distinct character is: e
+
+Enter String
+boolean
+Enter the kth distinct character
+7
+Invalid (as there are only 6 distinct characters)
